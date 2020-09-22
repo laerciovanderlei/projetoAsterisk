@@ -1,0 +1,91 @@
+
+mysql> describe grupo;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nome  | varchar(30) | NO   |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+
+
+mysql> describe ramais_sip;;
++-------------------+----------------------------------------------------+------+-----+----------+----------------+
+| Field             | Type                                               | Null | Key | Default  | Extra          |
++-------------------+----------------------------------------------------+------+-----+----------+----------------+
+| id                | int(11)                                            | NO   | PRI | NULL     | auto_increment |
+| name              | varchar(80)                                        | NO   | MUL |          |                |
+| context           | varchar(80)                                        | YES  |     | clientes |                |
+| secret            | varchar(80)                                        | YES  |     | NULL     |                |
+| host              | varchar(31)                                        | NO   |     | dynamic  |                |
+| nat               | varchar(5)                                         | NO   |     | yes      |                |
+| type              | enum('user','peer','friend')                       | NO   |     | friend   |                |
+| callerid          | varchar(80)                                        | YES  |     | NULL     |                |
+| qualify           | char(3)                                            | YES  |     | yes      |                |
+| rtptimeout        | char(10)                                           | YES  |     | NULL     |                |
+| username          | varchar(80)                                        | NO   |     |          |                |
+| lastms            | int(11)                                            | YES  |     | NULL     |                |
+| regseconds        | int(11)                                            | NO   |     | 0        |                |
+| useragent         | varchar(50)                                        | NO   |     |          |                |
+| ipaddr            | varchar(45)                                        | YES  |     | NULL     |                |
+| port              | int(5)                                             | YES  |     | NULL     |                |
+| fullcontact       | varchar(35)                                        | YES  |     | NULL     |                |
+| regserver         | varchar(20)                                        | YES  |     | NULL     |                |
+| deny              | varchar(40)                                        | YES  |     | NULL     |                |
+| disallow          | text                                               | YES  |     | NULL     |                |
+| insecure          | text                                               | YES  |     | NULL     |                |
+| fromuser          | text                                               | YES  |     | NULL     |                |
+| permit            | varchar(40)                                        | YES  |     | NULL     |                |
+| callbackextension | varchar(40)                                        | YES  |     | NULL     |                |
+| dtmfmode          | enum('rfc2833','info','shortinfo','inband','auto') | YES  |     | NULL     |                |
+| ip                | varchar(15)                                        | YES  |     | NULL     |                |
+| status            | varchar(30)                                        | YES  |     | NULL     |                |
+| defaultuser       | varchar(10)                                        | YES  |     | NULL     |                |
+| call-limit        | int(11)                                            | YES  |     | NULL     |                |
+| id_grupo          | int(11)                                            | YES  |     | NULL     |                |
++-------------------+----------------------------------------------------+------+-----+----------+----------------+
+
+
+mysql> describe permissao;;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nome  | varchar(30) | NO   |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+
+
+mysql> describe tab_cdr;
++-------------+--------------+------+-----+---------------------+----------------+
+| Field       | Type         | Null | Key | Default             | Extra          |
++-------------+--------------+------+-----+---------------------+----------------+
+| id          | bigint(20)   | NO   | PRI | NULL                | auto_increment |
+| calldate    | datetime     | NO   |     | 0000-00-00 00:00:00 |                |
+| clid        | varchar(80)  | NO   | MUL |                     |                |
+| src         | varchar(80)  | NO   |     |                     |                |
+| dst         | varchar(80)  | NO   |     |                     |                |
+| dcontext    | varchar(80)  | NO   |     |                     |                |
+| channel     | varchar(80)  | NO   |     |                     |                |
+| dstchannel  | varchar(80)  | NO   |     |                     |                |
+| lastapp     | varchar(80)  | NO   |     |                     |                |
+| lastdata    | varchar(80)  | NO   |     |                     |                |
+| duration    | int(11)      | NO   |     | 0                   |                |
+| 20billsec   | int(11)      | NO   |     | 0                   |                |
+| disposition | varchar(45)  | NO   |     |                     |                |
+| amaflags    | int(11)      | NO   |     | 0                   |                |
+| accountcode | varchar(20)  | NO   |     |                     |                |
+| peeraccount | varchar(20)  | NO   |     |                     |                |
+| uniqueid    | varchar(32)  | NO   |     |                     |                |
+| linkedid    | varchar(80)  | NO   |     |                     |                |
+| userfield   | varchar(255) | NO   |     |                     |                |
++-------------+--------------+------+-----+---------------------+----------------+
+
+
+mysql> describe usuario;
++---------+--------------+------+-----+---------+----------------+
+| Field   | Type         | Null | Key | Default | Extra          |
++---------+--------------+------+-----+---------+----------------+
+| id      | int(11)      | NO   | PRI | NULL    | auto_increment |
+| nome    | varchar(30)  | NO   |     | NULL    |                |
+| usuario | varchar(20)  | NO   |     | NULL    |                |
+| senha   | varchar(100) | NO   |     | NULL    |                |
++---------+--------------+------+-----+---------+----------------+
