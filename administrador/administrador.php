@@ -1,5 +1,5 @@
 <?php
-
+//teste de comentario
 require_once '../config/conexao.php';
 
 if (isset($_GET['acao'])) $acao = $_GET['acao'];
