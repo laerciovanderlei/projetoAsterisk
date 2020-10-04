@@ -23,12 +23,21 @@
       <tbody>
         <?php foreach ($registros as $linha): ?>
           <tr>
-      <td><?php echo $linha['id']; ?></td>
+      <!-- <td><?php echo $linha['id']; ?></td>
 	    <td><?php echo $linha['name']; ?></td>
 	    <td><?php echo $linha['username']; ?></td>
       <td><?php echo $linha['secret']; ?></td>
       <td><?php echo $linha['context']; ?></td>
+      <td><?php echo $linha['grupo']; ?></td> -->
+
+      <td><?php echo $linha['id']; ?></td>
+      <td><?php echo $linha['callerid']; ?></td>
+      <td><?php echo $linha['username']; ?></td>
+      <td><?php echo $linha['secret']; ?></td>
+      <td><?php echo $linha['context']; ?></td>
       <td><?php echo $linha['grupo']; ?></td>
+
+
             <td>
                 <a class="btn btn-primary btn-sm" href="ramais.php?acao=buscar&id=<?php echo $linha['id']; ?>">Editar</a>
                 <a class="btn btn-danger btn-sm" href="ramais.php?acao=excluir&id=<?php echo $linha['id']; ?>">Excluir</a>
