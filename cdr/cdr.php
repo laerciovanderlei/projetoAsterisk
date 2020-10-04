@@ -11,7 +11,7 @@ else $acao = $_GET['acao'];
  */
 
  if ($acao == "listar") {
-     $sql = "SELECT uniqueid, calldate, src, dst, clid, duration, clid, disposition FROM cdr";
+     $sql = "SELECT uniqueid, calldate, src, dst, clid, duration, billsec, clid, disposition FROM cdr";
 
 
     $query    = $con->query($sql);

@@ -1,6 +1,6 @@
 <div class="container">
   <h2>CDR</h2>
-  
+
   <!-- <a class="btn btn-info" href="ramais.php?acao=novo">Novo</a>
   <a class="btn btn-info" href="ramais_download_csv.php">Download CSV</a>
   <a class="btn btn-info" href="ramais_download_pdf.php" target="_blank">Download PDF</a> -->
@@ -19,7 +19,8 @@
 	  <th>Origem</th>
     <th>Destino</th>
     <th>CallerID</th>
-    <th>Duração</th>
+    <th>Duração Total</th>
+    <th>Duração em Conversação</th>
     <th>Status</th>
 
 
@@ -33,6 +34,7 @@
       <td><?php echo $linha['dst']; ?></td>
       <td><?php echo $linha['clid']; ?></td>
       <td><?php echo $linha['duration']; ?></td>
+      <td><?php echo $linha['billsec']; ?></td>
       <td><?php echo $linha['disposition']; ?></td>
             <!-- <td>
                 <a class="btn btn-primary btn-sm" href="ramais.php?acao=buscar&id=<?php echo $linha['id']; ?>">Editar</a>
