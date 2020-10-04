@@ -12,7 +12,8 @@ else $acao = $_GET['acao'];
 if ($acao == "listar") {
     $sql = "SELECT
    r.id,
-   r.name,
+   -- r.name,
+   r.callerid,
    r.username,
    r.secret,
    r.context,
@@ -53,7 +54,8 @@ else if ($acao == "gravar") {
     $registro = $_POST;
 
     //var_dump($registro);
-    $sql    = "INSERT INTO ramais_sip(name, username, secret, context, id_grupo) VALUES(:name, :username, :secret, :context, :id_grupo)";
+    // $sql    = "INSERT INTO ramais_sip(name, username, secret, context, id_grupo) VALUES(:name, :username, :secret, :context, :id_grupo)";
+    $sql    = "INSERT INTO ramais_sip(name, callerid, secret, context, id_grupo) VALUES(:name, :callerid, :secret, :context, :id_grupo)";
     $query  = $con->prepare($sql);
     $result = $query->execute($registro);
     if ($result) {
@@ -99,13 +101,41 @@ else if ($acao == "buscar") {
     require_once '../template/rodape.php';
 }
 
+// /**
+//  * Ação Atualizar
+//  **/
+// else if ($acao == "atualizar") {
+//     $sql = "UPDATE ramais_sip
+//                   SET name = :name,
+//                       username = :username,
+//                       secret = :secret,
+//                       context = :context,
+//                       id_grupo = :id_grupo
+//                   WHERE id = :id";
+//
+//     $query = $con->prepare($sql);
+//
+//     $query->bindParam(':id', $_GET['id']);
+//     $query->bindParam(':name', $_POST['name']);
+//     $query->bindParam(':username', $_POST['username']);
+//     $query->bindParam(':secret', $_POST['secret']);
+//     $query->bindParam(':context', $_POST['context']);
+//     $query->bindParam(':id_grupo', $_POST['id_grupo']);
+//     $result = $query->execute();
+//     if ($result) {
+//         header('Location: ./ramais.php');
+//     } else {
+//         echo "Erro ao tentar atualizar os dados" . print_r($query->errorInfo());
+//     }
+// }
+
 /**
  * Ação Atualizar
  **/
 else if ($acao == "atualizar") {
     $sql = "UPDATE ramais_sip
-                  SET name = :name,
-                      username = :username,
+                  SET callerid = :callerid,
+                      name = :name,
                       secret = :secret,
                       context = :context,
                       id_grupo = :id_grupo
@@ -114,8 +144,8 @@ else if ($acao == "atualizar") {
     $query = $con->prepare($sql);
 
     $query->bindParam(':id', $_GET['id']);
+    $query->bindParam(':callerid', $_POST['callerid']);
     $query->bindParam(':name', $_POST['name']);
-    $query->bindParam(':username', $_POST['username']);
     $query->bindParam(':secret', $_POST['secret']);
     $query->bindParam(':context', $_POST['context']);
     $query->bindParam(':id_grupo', $_POST['id_grupo']);
@@ -126,6 +156,7 @@ else if ($acao == "atualizar") {
         echo "Erro ao tentar atualizar os dados" . print_r($query->errorInfo());
     }
 }
+
 
 
 //função que retorna a lista de grupos cadastrados no banco
