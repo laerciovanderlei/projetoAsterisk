@@ -6,14 +6,14 @@
 
     <div class="from-group">
       <label for="name">Nome</label>
-      <input id="name" class="form-control" type="text" name="name"
-        value="<?php if(isset($registro)) echo $registro['name']; ?>" required>
+      <input id="callerid" class="form-control" type="text" name="callerid"
+        value="<?php if(isset($registro)) echo $registro['callerid']; ?>" required>
     </div>
 
     <div class="from-group">
-      <label for="username">Ramal</label>
-      <input id="username" class="form-control" type="text" name="username"
-        value="<?php if(isset($registro)) echo $registro['username']; ?>" required>
+      <label for="name">Ramal</label>
+      <input id="name" class="form-control" type="text" name="name"
+        value="<?php if(isset($registro)) echo $registro['name']; ?>" required>
     </div>
 
     <div class="from-group">
