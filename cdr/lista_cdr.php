@@ -1,11 +1,15 @@
 <div class="container">
   <h2>CDR</h2>
+  <button type="" class="btn">Não Atendido</button>
+  <button type="button" class="btn btn-success">Atendido</button>
+  <button type="button" class="btn btn-warning">Ocupado</button>
+  <button type="button" class="btn btn-danger">Invalida</button>
 
-  <!-- <a class="btn btn-info" href="ramais.php?acao=novo">Novo</a>
-  <a class="btn btn-info" href="ramais_download_csv.php">Download CSV</a>
-  <a class="btn btn-info" href="ramais_download_pdf.php" target="_blank">Download PDF</a> -->
+  <!-- <a href="http://google.com.br" onclick="return confirm('Deseja mesmo acessar o Google?');">Ir para o Google!</a> -->
+
 
   <?php if (count($registros)==0): ?>
+
 
   <p></p>
     <p>Tabela do CDR Vazia!</p>
@@ -14,7 +18,7 @@
     <table class="table table-hover table-stripped">
     <!-- <table class="table table-dark"> -->
       <thead class="thead-dark">
-    <th>#</th>
+    <!-- <th>#</th> -->
 	  <th>Data/Hora</th>
 	  <th>Origem</th>
     <th>Destino</th>
@@ -28,7 +32,7 @@
       <tbody>
         <?php foreach ($registros as $linha): ?>
           <tr>
-      <td><?php echo $linha['uniqueid']; ?></td>
+      <!-- <td><?php echo $linha['uniqueid']; ?></td> -->
 	    <td><?php echo $linha['calldate']; ?></td>
 	    <td><?php echo $linha['src']; ?></td>
       <td><?php echo $linha['dst']; ?></td>
@@ -46,13 +50,6 @@
 
     </table>
 
-    <ul class="pagination">
-      <li class="page-item disabled"><a class="page-link" href="#">Inicio</a></li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">Proximo</a></li>
-    </ul>
 
   <?php endif; ?>
 </div>
