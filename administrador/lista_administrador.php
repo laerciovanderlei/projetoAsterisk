@@ -22,7 +22,7 @@
 
 	          <td>
                 <a class="btn btn-primary btn-sm" href="administrador.php?acao=buscar&id=<?php echo $linha['id']; ?>">Editar</a>
-                <a class="btn btn-danger btn-sm" href="administrador.php?acao=excluir&id=<?php echo $linha['id']; ?>">Excluir</a>
+                <a class="btn btn-danger btn-sm" onclick="return confirm('Deseja mesmo Deletar o Usuario?')" href="administrador.php?acao=excluir&id=<?php echo $linha['id']; ?>">Excluir</a>
             </td>
           </tr>
         <?php endforeach; ?>
