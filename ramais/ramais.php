@@ -12,11 +12,11 @@ else $acao = $_GET['acao'];
 if ($acao == "listar") {
     $sql = "SELECT
    r.id,
-   -- r.name,
    r.callerid,
    r.username,
    r.secret,
    r.context,
+   r.ipaddr,
    g.nome AS grupo
 FROM
    ramais_sip r
