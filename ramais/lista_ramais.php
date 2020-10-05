@@ -12,12 +12,13 @@
 
     <table class="table table-hover table-stripped">
       <thead>
-    <th>#</th>
+    <!-- <th>#</th> -->
 	  <th>Nome</th>
 	  <th>Ramal</th>
     <th>Senha</th>
     <th>Permissão</th>
     <th>Grupo</th>
+    <th>Ip</th>
     <th>Ações</th>
       </thead>
       <tbody>
@@ -30,17 +31,19 @@
       <td><?php echo $linha['context']; ?></td>
       <td><?php echo $linha['grupo']; ?></td> -->
 
-      <td><?php echo $linha['id']; ?></td>
+      <!-- <td><?php echo $linha['id']; ?></td> -->
       <td><?php echo $linha['callerid']; ?></td>
       <td><?php echo $linha['username']; ?></td>
       <td><?php echo $linha['secret']; ?></td>
       <td><?php echo $linha['context']; ?></td>
       <td><?php echo $linha['grupo']; ?></td>
+      <td><?php echo $linha['ipaddr']; ?></td>
 
 
             <td>
                 <a class="btn btn-primary btn-sm" href="ramais.php?acao=buscar&id=<?php echo $linha['id']; ?>">Editar</a>
-                <a class="btn btn-danger btn-sm" href="ramais.php?acao=excluir&id=<?php echo $linha['id']; ?>">Excluir</a>
+                <a class="btn btn-danger btn-sm" onclick="return confirm('Deseja mesmo Deletar o Ramal?')" href="ramais.php?acao=excluir&id=<?php echo $linha['id']; ?>">Excluir</a>
+
             </td>
           </tr>
         <?php endforeach; ?>
