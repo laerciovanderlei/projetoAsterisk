@@ -10,16 +10,19 @@
     <p>Nenhum Ramal encontrado!</p>
   <?php else: ?>
 
-    <table class="table table-hover table-stripped">
+    <!-- <table class="table table-hover table-stripped"> -->
+    <table class="table table-hover table-stripped dataTables">
       <thead>
     <!-- <th>#</th> -->
-	  <th>Nome</th>
+      <th style="width: 20px;">Nome</th>
+	  <!-- <th>Nome</th> -->
 	  <th>Ramal</th>
     <th>Senha</th>
     <th>Permissão</th>
     <th>Grupo</th>
     <th>Ip</th>
-    <th>Ações</th>
+    <!-- <th>Ações</th> -->
+        <th style="width: 120px;">Ações</th>
       </thead>
       <tbody>
         <?php foreach ($registros as $linha): ?>

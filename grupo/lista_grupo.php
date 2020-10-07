@@ -6,16 +6,19 @@
 <p></p>
     <p>Nenhum Grupo encontrado!</p>
   <?php else: ?>
-    <table class="table table-hover table-stripped">
+    <!-- <table class="table table-hover table-stripped"> -->
+    <table class="table table-hover table-stripped dataTables">
       <thead>
-           <th>#</th>
-	         <th>Nome</th>
-           <th>Ações</th>
+           <!-- <th>#</th>
+	         <th>Nome</th> -->
+           <!-- <th>Ações</th> -->
+           <th style="width: 20px;">Nome</th>
+           <th style="width: 120px;">Ações</th>
       </thead>
       <tbody>
         <?php foreach ($registros as $linha): ?>
           <tr>
-      <td><?php echo $linha['id']; ?></td>
+      <!-- <td><?php echo $linha['id']; ?></td> -->
 	    <td><?php echo $linha['nome']; ?></td>
 	          <td>
                 <a class="btn btn-primary btn-sm" href="grupo.php?acao=buscar&id=<?php echo $linha['id']; ?>">Editar</a>

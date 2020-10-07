@@ -5,11 +5,14 @@
   <?php if (count($registros)==0): ?>
     <p>Nenhuma permissão encontrado.</p>
   <?php else: ?>
-    <table class="table table-hover table-stripped">
+    <!-- <table class="table table-hover table-stripped"> -->
+    <table class="table table-hover table-stripped dataTables">
       <thead>
            <!-- <th>#</th> -->
-	         <th>Nome</th>
-           <th>Ações</th>
+           <th style="width: 20px;">Nome</th>
+	         <!-- <th>Nome</th> -->
+           <!-- <th>Ações</th> -->
+           <th style="width: 120px;">Ações</th>
       </thead>
       <tbody>
         <?php foreach ($registros as $linha): ?>

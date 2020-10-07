@@ -1,3 +1,25 @@
+<?php
+function hora($seg)
+{
+    $hora = floor($seg / 3600);
+    $seg -= $hora * 3600;
+
+    $minuto = floor($seg / 60);
+    $seg -= $minuto * 60;
+
+    if ($hora < 10)
+        $hora = "0" . $hora;
+    if ($minuto < 10)
+        $minuto = "0" . $minuto;
+    if ($seg < 10)
+        $seg = "0" . $seg;
+
+    return $hora . ":" . $minuto . ":" . $seg;
+}
+?>
+
+
+
 <div class="container">
   <h2>CDR</h2>
   <button type="" class="btn">Não Atendido</button>
@@ -14,8 +36,8 @@
   <p></p>
     <p>Tabela do CDR Vazia!</p>
   <?php else: ?>
-
-    <table class="table table-hover table-stripped">
+    <table class="table table-hover table-stripped dataTables">
+    <!-- <table class="table table-hover table-stripped"> -->
     <!-- <table class="table table-dark"> -->
       <thead class="thead-dark">
     <!-- <th>#</th> -->
@@ -38,8 +60,24 @@
       <td><?php echo $linha['dst']; ?></td>
       <td><?php echo $linha['clid']; ?></td>
       <td><?php echo $linha['duration']; ?></td>
-      <td><?php echo $linha['billsec']; ?></td>
-      <td><?php echo $linha['disposition']; ?></td>
+      <td><?php echo hora($linha['billsec']); ?></td>
+
+      <!-- <td><?php echo $linha['disposition']; ?></td> -->
+      <td>
+              <?php
+              if ($linha['disposition'] == "NO ANSWER") {
+                echo "Não Atendido";
+              }else if ($linha['disposition'] == "ANSWERED") {
+                echo "Atendido";
+              }else if ($linha['disposition'] == "BUSY") {
+                echo " Ocupado";
+              }
+              ?>
+            </td>
+
+
+
+
             <!-- <td>
                 <a class="btn btn-primary btn-sm" href="ramais.php?acao=buscar&id=<?php echo $linha['id']; ?>">Editar</a>
                 <a class="btn btn-danger btn-sm" href="ramais.php?acao=excluir&id=<?php echo $linha['id']; ?>">Excluir</a>
@@ -49,7 +87,5 @@
       </tbody>
 
     </table>
-
-
   <?php endif; ?>
 </div>

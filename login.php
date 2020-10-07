@@ -1,5 +1,6 @@
 <?php
     session_start(); //DEVE SER A PRIMEIRA LINHA
+    $_SESSION['logado'] = 0; //Começa zerado para validação caso quando eu estiver logado vai constar como 1 e caso contrar zero, se zero vai para tela de login
 
     //Finaliza a sessão logado da Aplicação
     if(isset($_GET['acao']) && $_GET['acao']=="sair"){

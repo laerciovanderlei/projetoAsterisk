@@ -104,3 +104,27 @@ echo "Erro ao tentar atualizar os dados da Permissão";
 
 
  ?>
+ <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+
+ <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+
+ <script>
+   $(document).ready(function() {
+     $('.dataTables').DataTable({
+       "language": {
+         "decimal": ",",
+         "thousands": ".",
+         "lengthMenu": "Mostrar _MENU_ resultados",
+         "zeroRecords": "Nenhum resultado encontrado.",
+         "info": "Página _PAGE_ de _PAGES_",
+         "infoEmpty": "Não existem registros.",
+         "infoFiltered": "",
+         "search": "Pesquisar:",
+         "paginate": {
+           "previous": "Anterior",
+           "next": "Próximo"
+         }
+       },
+     });
+   });
+ </script>

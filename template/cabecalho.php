@@ -1,10 +1,21 @@
 <?php
     session_start(); //DEVE SER A PRIMEIRA LINHA
 
+    define('BASE_URL', 'http://localhost/projetoAsterisk');
+
+    // //Finaliza a sessão logado da Aplicação
+    // if(isset($_GET['acao']) && $_GET['acao']=="sair"){
+    //     unset($_SESSION['logado']);
+    // }
     //Finaliza a sessão logado da Aplicação
-    if(isset($_GET['acao']) && $_GET['acao']=="sair"){
-        unset($_SESSION['logado']);
+    if (isset($_GET['acao']) && $_GET['acao'] == "sair") {
+      session_destroy();
     }
+
+    if (empty($_SESSION['logado'])) {
+      header("Location: " . BASE_URL . "/login.php ");
+    }
+
 ?>
 
 
@@ -27,6 +38,14 @@
 
     <!-- Custom styles for this template -->
     <link href="<?= BASE_URL; ?>/album.css" rel="stylesheet">
+
+
+    <style>
+    .menu-text {
+      padding-left: 20px;
+    }
+  </style>
+  
   </head>
 
   <body>
@@ -61,6 +80,17 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
             <strong>Asterisk</strong>
           </a>
+          <div>
+            <a href="<?= BASE_URL; ?>/ramais/ramais.php" class="text-white menu-text">Ramais</a>
+            <a href="<?= BASE_URL; ?>/grupo/grupo.php" class="text-white menu-text">Grupo</a>
+            <a href="<?= BASE_URL; ?>/permissao/permissao.php" class="text-white menu-text">Permissão</a>
+            <a href="<?= BASE_URL; ?>/cdr/cdr.php" class="text-white menu-text">CDR</a>
+            <a href="<?= BASE_URL; ?>/administrador/administrador.php" class="text-white menu-text">Administrador</a>
+            <a href="<?= BASE_URL; ?>/login.php" class="text-white menu-text">Sair</a>
+          </div>
+
+
+
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
