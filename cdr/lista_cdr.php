@@ -59,7 +59,7 @@ function hora($seg)
 	    <td><?php echo $linha['src']; ?></td>
       <td><?php echo $linha['dst']; ?></td>
       <td><?php echo $linha['clid']; ?></td>
-      <td><?php echo $linha['duration']; ?></td>
+      <td><?php echo hora($linha['duration']); ?></td>
       <td><?php echo hora($linha['billsec']); ?></td>
 
       <!-- <td><?php echo $linha['disposition']; ?></td> -->
