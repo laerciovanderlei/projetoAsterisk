@@ -55,7 +55,7 @@ function hora($seg)
         <?php foreach ($registros as $linha): ?>
           <tr>
       <!-- <td><?php echo $linha['uniqueid']; ?></td> -->
-	    <td><?php echo $linha['calldate']; ?></td>
+	    <td bgcolor="#A9A9A9"><?php echo $linha['calldate']; ?></td>
 	    <td><?php echo $linha['src']; ?></td>
       <td><?php echo $linha['dst']; ?></td>
       <td><?php echo $linha['clid']; ?></td>
@@ -67,10 +67,11 @@ function hora($seg)
               <?php
               if ($linha['disposition'] == "NO ANSWER") {
                 echo "Não Atendido";
+
               }else if ($linha['disposition'] == "ANSWERED") {
                 echo "Atendido";
               }else if ($linha['disposition'] == "BUSY") {
-                echo " Ocupado";
+                echo "Ocupado";
               }
               ?>
             </td>
