@@ -45,7 +45,7 @@
       padding-left: 20px;
     }
   </style>
-  
+
   </head>
 
   <body>
@@ -67,6 +67,8 @@
                 <li><a href="<?= BASE_URL; ?>/grupo/grupo.php" class="text-white">Grupo</a></li>
                 <li><a href="<?= BASE_URL; ?>/permissao/permissao.php" class="text-white">Permissão</a></li>
                 <li><a href="<?= BASE_URL; ?>/cdr/cdr.php" class="text-white">CDR</a></li>
+                <li><a href="<?= BASE_URL; ?>/filas/fila.php" class="text-white">Filas</a></li>
+                <li><a href="<?= BASE_URL; ?>/dashboard/dashboard.php" class="text-white">Dashboard</a></li>
                 <li><a href="<?= BASE_URL; ?>/administrador/administrador.php" class="text-white">Administrador</a></li>
                 <li><a href="<?= BASE_URL; ?>/login.php" class="text-white">Sair</a></li>
               </ul>
@@ -85,6 +87,9 @@
             <a href="<?= BASE_URL; ?>/grupo/grupo.php" class="text-white menu-text">Grupo</a>
             <a href="<?= BASE_URL; ?>/permissao/permissao.php" class="text-white menu-text">Permissão</a>
             <a href="<?= BASE_URL; ?>/cdr/cdr.php" class="text-white menu-text">CDR</a>
+            <a href="<?= BASE_URL; ?>/filas/fila.php" class="text-white menu-text">Filas</a>
+            <a href="<?= BASE_URL; ?>/dashboard/dashboard.php" class="text-white menu-text">Dashboard</a>
+            <!-- <a href="<?= BASE_URL; ?>/cdr/cdr.php" class="text-white menu-text">CDR</a> -->
             <a href="<?= BASE_URL; ?>/administrador/administrador.php" class="text-white menu-text">Administrador</a>
             <a href="<?= BASE_URL; ?>/login.php" class="text-white menu-text">Sair</a>
           </div>

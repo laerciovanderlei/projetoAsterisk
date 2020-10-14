@@ -1,22 +1,22 @@
 <?php
-function hora($seg)
-{
-    $hora = floor($seg / 3600);
-    $seg -= $hora * 3600;
-
-    $minuto = floor($seg / 60);
-    $seg -= $minuto * 60;
-
-    if ($hora < 10)
-        $hora = "0" . $hora;
-    if ($minuto < 10)
-        $minuto = "0" . $minuto;
-    if ($seg < 10)
-        $seg = "0" . $seg;
-
-    return $hora . ":" . $minuto . ":" . $seg;
-}
-?>
+// function hora($seg)
+// {
+//     $hora = floor($seg / 3600);
+//     $seg -= $hora * 3600;
+//
+//     $minuto = floor($seg / 60);
+//     $seg -= $minuto * 60;
+//
+//     if ($hora < 10)
+//         $hora = "0" . $hora;
+//     if ($minuto < 10)
+//         $minuto = "0" . $minuto;
+//     if ($seg < 10)
+//         $seg = "0" . $seg;
+//
+//     return $hora . ":" . $minuto . ":" . $seg;
+// }
+// ?>
 
 
 
@@ -56,7 +56,7 @@ function hora($seg)
           <tr>
       <!-- <td><?php echo $linha['uniqueid']; ?></td> -->
 	    <td bgcolor="#A9A9A9"><?php echo $linha['calldate']; ?></td>
-    <!-- REalizar o ajuste da data e hora para o Padrão Brasileiro -->
+      //REalizar o ajuste da data e hora para o Padrão Brasileiro
       <!-- <?php echo date('d/m/Y H:i:s', strtotime($data)); ?> -->
 
 	    <td><?php echo $linha['src']; ?></td>
