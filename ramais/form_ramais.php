@@ -28,12 +28,26 @@
         value="<?php if(isset($registro)) echo $registro['secret']; ?>" required>
     </div>
 
-    <div class="from-group">
+    <!-- <div class="from-group">
       <label for="context">Permissão</label>
       <input id="context" class="form-control" type="text" name="context"
         value="<?php if(isset($registro)) echo $registro['context']; ?>" required>
-    </div>
+    </div> -->
 
+
+
+    <div class="from-group">
+      <label for="id_permissao">Permissao</label>
+        <select class="form-control" name="id_permissao" required>
+          <option value="">Plano de Discagem</option>
+            <?php foreach ($lista_permissao as $item): ?>
+          <option value="<?php echo $item['id']; ?>"
+            <?php if(isset($registro) && $registro['id_permissao']==$item['id']) echo "selected";?>>
+            <?php echo $item['nome']; ?>
+          </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
 
 
 
@@ -49,6 +63,10 @@
             <?php endforeach; ?>
         </select>
   </div>
+
+
+
+
     <br>
     <button class="btn btn-info" type="submit">Enviar</button>
 </form>
