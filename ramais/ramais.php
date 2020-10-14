@@ -16,12 +16,15 @@ if ($acao == "listar") {
    r.secret,
    r.context,
    r.ipaddr,
-   g.nome AS grupo
+   g.nome AS grupo,
+   p.nome as permissao
 FROM
    ramais_sip r
-   INNER JOIN
+   LEFT JOIN
       grupo g
       ON g.id = r.id_grupo
+      LEFT JOIN permissao p
+      ON p.id = r.id_permissao
 ORDER BY
    r.name ASC";
 
@@ -39,6 +42,7 @@ ORDER BY
 else if ($acao == "novo") {
 
     $lista_grupo = getGrupos();
+    $lista_permissao = getPermissao();
 
     require_once '../template/cabecalho.php';
     require_once 'form_ramais.php';
@@ -52,14 +56,17 @@ else if ($acao == "gravar") {
     $registro = $_POST;
 
     //var_dump($registro);
-    $sql    = "INSERT INTO ramais_sip(callerid, name, username, secret, context, id_grupo)
-                              VALUES(:callerid, :name, :username, :secret, :context, :id_grupo)";
+
+    // $sql    = "INSERT INTO ramais_sip(callerid, name, username, secret, context, id_grupo) VALUES(:callerid, :name, :username, :secret, :context, :id_grupo)";
+    $senha_gerada = substr(md5(mt_rand()), -10);
+    $sql    = "INSERT INTO ramais_sip(callerid, name, username, secret, id_permissao, id_grupo) VALUES(:callerid, :name, :username, :secret, :id_permissao, :id_grupo)";
+
     $query  = $con->prepare($sql);
     $result = $query->execute($registro);
     if ($result) {
         header('Location: ./ramais.php');
     } else {
-        echo "Erro ao tentar inserir o ramal";
+        echo "Erro ao tentar inserir o ramal" . print_r($query->errorInfo());
     }
 }
 
@@ -85,6 +92,7 @@ else if ($acao == "excluir") {
  **/
 else if ($acao == "buscar") {
     $lista_grupo = getGrupos();
+    $lista_permissao = getPermissao();
     $id          = $_GET['id'];
     $sql         = "SELECT * FROM ramais_sip WHERE id = :id";
     $query       = $con->prepare($sql);
@@ -108,7 +116,10 @@ else if ($acao == "atualizar") {
                   SET callerid = :callerid,
                       name = :name,
                       secret = :secret,
-                      context = :context,
+
+                      -- context = :context,
+
+                      id_permissao = :id_permissao,
                       id_grupo = :id_grupo
                   WHERE id = :id";
 
@@ -117,7 +128,10 @@ else if ($acao == "atualizar") {
     $query->bindParam(':callerid', $_POST['callerid']);
     $query->bindParam(':name', $_POST['name']);
     $query->bindParam(':secret', $_POST['secret']);
-    $query->bindParam(':context', $_POST['context']);
+
+    // $query->bindParam(':context', $_POST['context']);
+
+    $query->bindParam(':id_permissao', $_POST['id_permissao']);
     $query->bindParam(':id_grupo', $_POST['id_grupo']);
     $result = $query->execute();
     if ($result) {
@@ -135,6 +149,18 @@ function getGrupos()
     $lista_grupo = $query->fetchAll();
     return $lista_grupo;
 }
+
+//função que retorna a lista de Permissão cadastrados no banco
+function getPermissao()
+{
+    $sql         = "SELECT * FROM permissao";
+    $query       = $GLOBALS['con']->query($sql);
+    $lista_permissao = $query->fetchAll();
+    return $lista_permissao;
+}
+
+
+
 ?>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 
