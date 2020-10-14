@@ -1,3 +1,17 @@
+<style>
+/*comentário do status do ramal*/
+.dot-status{
+  height: 12px;
+  width: 12px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+}
+.online{
+  background-color: green !important;
+}
+</style>
+
 <div class="container">
   <h2>Ramais</h2>
   <a class="btn btn-info" href="ramais.php?acao=novo">Novo</a>
@@ -38,9 +52,20 @@
       <td><?php echo $linha['callerid']; ?></td>
       <td><?php echo $linha['username']; ?></td>
       <td><?php echo $linha['secret']; ?></td>
-      <td><?php echo $linha['context']; ?></td>
+
+      <!-- <td><?php echo $linha['context']; ?></td> -->
+
+      <td><?php echo $linha['permissao']; ?></td>
       <td><?php echo $linha['grupo']; ?></td>
-      <td><?php echo $linha['ipaddr']; ?></td>
+      <td>
+        <?php
+        $status_online="";
+        if($linha['ipaddr']!=""){
+          $status_online="online";
+        }
+        ?>
+        <span class="dot-status <?php echo $status_online;?>"></span> <span><?php echo $linha['ipaddr']; ?></span>
+      </td>
 
 
             <td>
