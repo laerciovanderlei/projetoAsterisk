@@ -55,7 +55,9 @@ function hora($seg)
         <?php foreach ($registros as $linha): ?>
           <tr>
       <!-- <td><?php echo $linha['uniqueid']; ?></td> -->
-	    <td bgcolor="#A9A9A9"><?php echo $linha['calldate']; ?></td>
+	    <td bgcolor="#A9A9A9">
+        <?php echo date("d/m/Y H:i:s",strtotime($linha['calldate'])); ?>
+      </td>
     <!-- REalizar o ajuste da data e hora para o Padrão Brasileiro -->
       <!-- <?php echo date('d/m/Y H:i:s', strtotime($data)); ?> -->
 
@@ -66,18 +68,21 @@ function hora($seg)
       <td><?php echo hora($linha['billsec']); ?></td>
 
       <!-- <td><?php echo $linha['disposition']; ?></td> -->
-      <td>
-              <?php
-              if ($linha['disposition'] == "NO ANSWER") {
-                echo "Não Atendido";
 
-              }else if ($linha['disposition'] == "ANSWERED") {
-                echo "Atendido";
-              }else if ($linha['disposition'] == "BUSY") {
-                echo "Ocupado";
-              }
-              ?>
-            </td>
+      <?php
+      if ($linha['disposition'] == "NO ANSWER") {
+        $status_txt = "Não Atendido";
+        $status_color = "background-color:#f2f1f0;";
+      }else if ($linha['disposition'] == "ANSWERED") {
+        $status_txt = "Atendido";
+        $status_color = "background-color:#28a745;";
+      }else if ($linha['disposition'] == "BUSY") {
+        $status_txt = "Ocupado";
+        $status_color = "background-color:#ffc107;";
+      }
+      ?>
+
+      <td style="<?php echo $status_color; ?>"><?php echo $status_txt; ?></td>
 
 
 
