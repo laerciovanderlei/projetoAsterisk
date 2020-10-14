@@ -52,7 +52,8 @@ else if ($acao == "gravar") {
     $registro = $_POST;
 
     //var_dump($registro);
-    $sql    = "INSERT INTO ramais_sip(name, callerid, secret, context, id_grupo) VALUES(:name, :callerid, :secret, :context, :id_grupo)";
+    $sql    = "INSERT INTO ramais_sip(callerid, name, username, secret, context, id_grupo)
+                              VALUES(:callerid, :name, :username, :secret, :context, :id_grupo)";
     $query  = $con->prepare($sql);
     $result = $query->execute($registro);
     if ($result) {

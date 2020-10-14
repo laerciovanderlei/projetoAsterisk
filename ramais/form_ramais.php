@@ -17,6 +17,12 @@
     </div>
 
     <div class="from-group">
+      <label for="username">Username</label>
+      <input id="username" class="form-control" type="text" name="username"
+        value="<?php if(isset($registro)) echo $registro['username']; ?>" required>
+    </div>
+
+    <div class="from-group">
       <label for="secret">Senha</label>
       <input id="secret" class="form-control" type="varchar" name="secret"
         value="<?php if(isset($registro)) echo $registro['secret']; ?>" required>
