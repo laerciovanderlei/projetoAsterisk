@@ -6,10 +6,8 @@ require_once '../config/conexao.php';
  * Título CSV
  */
 $array_titulo = array(
-  '#',
   'Nome',
   'Ramal',
-  'Senha',
   'Permissão',
   'Grupo'
 );
@@ -26,26 +24,27 @@ fputcsv($output, $array_titulo, ';');
 
 
 $consulta = $con->query("SELECT
-r.id,
-r.name,
+r.callerid,
 r.username,
-r.secret,
-r.context,
+p.nome as permissao,
 g.nome AS grupo
 FROM
 ramais_sip r
-INNER JOIN
+LEFT JOIN
   grupo g
   ON g.id = r.id_grupo
+  LEFT JOIN permissao p
+  ON p.id = r.id_permissao
 ORDER BY
-r.name ASC");
+r.name ASC")
+;
 
 while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
   fputcsv($output, array(
-    $linha['id'],
-    utf8_decode($linha['nome']),
-    $linha['ramal'],
-    $linha['senha'],
+    utf8_decode(
+    $linha['callerid']),
+    $linha['username'],
+    $linha['permissao'],
     utf8_decode($linha['grupo'])
   ), ';');
 }

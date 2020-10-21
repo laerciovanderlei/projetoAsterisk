@@ -25,7 +25,7 @@
     <div class="from-group">
       <label for="secret">Senha</label>
       <input id="secret" class="form-control" type="varchar" name="secret"
-        value="<?php if(isset($registro)) echo $registro['secret']; ?>" required>
+        value="<?php if(isset($registro)){ echo $registro['secret'];}else{echo substr(md5(mt_rand()), -10);} ?>" required>
     </div>
 
     <!-- <div class="from-group">

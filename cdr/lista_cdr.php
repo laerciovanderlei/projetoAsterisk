@@ -55,7 +55,7 @@ function hora($seg)
         <?php foreach ($registros as $linha): ?>
           <tr>
       <!-- <td><?php echo $linha['uniqueid']; ?></td> -->
-	    <td bgcolor="#A9A9A9">
+	    <td data-sort="<?=$linha['calldate']?>" bgcolor="#A9A9A9">
         <?php echo date("d/m/Y H:i:s",strtotime($linha['calldate'])); ?>
       </td>
     <!-- REalizar o ajuste da data e hora para o Padrão Brasileiro -->

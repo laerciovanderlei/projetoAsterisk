@@ -41,10 +41,13 @@ else $acao = $_GET['acao'];
                 "infoFiltered": "",
                 "search": "Pesquisar:",
                 "paginate": {
-                    "previous": "Anterior",
-                    "next": "Próximo"
+                "previous": "Anterior",
+                "next": "Próximo"
                 }
             },
+            "order": [
+                        [0, "desc"]
+                    ],
         });
     });
 </script>

@@ -58,8 +58,8 @@ else if ($acao == "gravar") {
     //var_dump($registro);
 
     // $sql    = "INSERT INTO ramais_sip(callerid, name, username, secret, context, id_grupo) VALUES(:callerid, :name, :username, :secret, :context, :id_grupo)";
-    $senha_gerada = substr(md5(mt_rand()), -10);
-    $sql    = "INSERT INTO ramais_sip(callerid, name, username, secret, id_permissao, id_grupo) VALUES(:callerid, :name, :username, :secret, :id_permissao, :id_grupo)";
+
+    $sql = "INSERT INTO ramais_sip(callerid, name, username, secret, id_permissao, id_grupo) VALUES(:callerid, :name, :username, :secret, :id_permissao, :id_grupo)";
 
     $query  = $con->prepare($sql);
     $result = $query->execute($registro);
@@ -87,6 +87,7 @@ else if ($acao == "excluir") {
         echo "Erro ao tentar remover o ramal de id: " . $id;
     }
 }
+
 /**
  * Ação Atualizar
  **/
@@ -179,8 +180,8 @@ function getPermissao()
                 "infoFiltered": "",
                 "search": "Pesquisar:",
                 "paginate": {
-                    "previous": "Anterior",
-                    "next": "Próximo"
+                "previous": "Anterior",
+                "next": "Próximo"
                 }
             },
         });
