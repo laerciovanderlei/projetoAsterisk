@@ -24,8 +24,7 @@ else $acao = "administrador.php?acao=gravar";
 
       <input id="senha" class="form-control" type="password" name="senha" value="">
     </div>
-
-
+    
     <br>
     <button class="btn btn-info" type="submit">Enviar</button>
   </form>

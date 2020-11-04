@@ -1,14 +1,4 @@
 <?php
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
-
-// session_start(); //DEVE SER A PRIMEIRA LINHA
-//
-// //Finaliza a sessão logado da Aplicação
-// if(isset($_GET['acao']) && $_GET['acao']=="sair"){
-//     unset($_SESSION['logado']);
-// }
 
 require_once 'template/cabecalho.php'; ?>
 
@@ -19,7 +9,7 @@ require_once 'template/cabecalho.php'; ?>
       Aplicação para cadastrar, listar exluir ramais do asterisk.
     </p>
     <p>
-        <img class="mb-4" src="/projetoAsterisk/template/Asterisk_Logo.png">
+      <img class="mb-4" src="/projetoAsterisk/template/Asterisk_Logo.png">
       <!-- <a href="#" class="btn btn-primary my-2">Main call to action</a>
       <a href="#" class="btn btn-secondary my-2">Secondary action</a> -->
     </p>

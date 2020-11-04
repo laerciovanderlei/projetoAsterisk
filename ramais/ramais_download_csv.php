@@ -3,8 +3,8 @@
 require_once '../config/conexao.php';
 
 /**
- * Título CSV
- */
+* Título CSV
+*/
 $array_titulo = array(
   'Nome',
   'Ramal',
@@ -24,27 +24,27 @@ fputcsv($output, $array_titulo, ';');
 
 
 $consulta = $con->query("SELECT
-r.callerid,
-r.username,
-p.nome as permissao,
-g.nome AS grupo
-FROM
-ramais_sip r
-LEFT JOIN
+  r.callerid,
+  r.username,
+  p.nome as permissao,
+  g.nome AS grupo
+  FROM
+  ramais_sip r
+  LEFT JOIN
   grupo g
   ON g.id = r.id_grupo
   LEFT JOIN permissao p
   ON p.id = r.id_permissao
-ORDER BY
-r.name ASC")
-;
+  ORDER BY
+  r.name ASC")
+  ;
 
-while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
-  fputcsv($output, array(
-    utf8_decode(
-    $linha['callerid']),
-    $linha['username'],
-    $linha['permissao'],
-    utf8_decode($linha['grupo'])
-  ), ';');
-}
+  while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+    fputcsv($output, array(
+      utf8_decode(
+        $linha['callerid']),
+        $linha['username'],
+        $linha['permissao'],
+        utf8_decode($linha['grupo'])
+      ), ';');
+    }
