@@ -55,8 +55,11 @@ else $acao = "ramais.php?acao=gravar";?>
     </div>
 
     <br>
-  
+
     <button class="btn btn-info" onclick="return confirm('Deseja mesmo Cadastrar o Ramal?')" type="submit">Enviar</button>
+
+
+
 
   </form>
 </div>

@@ -11,11 +11,11 @@ else $acao = $_GET['acao'];
  */
 
  if ($acao == "listar") {
- $sql = "select count(*) from cdr where disposition ='ANSWERED'";
+   //$sql = "select count(*) from cdr where disposition ='ANSWERED'";
 
 
-    $query    = $con->query($sql);
-    $registros = $query->fetchAll();
+    //$query    = $con->query($sql);
+    //$registros = $query->fetchAll();
 
     require_once '../template/cabecalho.php';
     require_once 'lista_dashboard.php';

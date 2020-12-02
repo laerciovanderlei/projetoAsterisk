@@ -18,7 +18,8 @@
             <td><?php echo $linha['nome']; ?></td>
             <td>
               <a class="btn btn-primary btn-sm" href="permissao.php?acao=buscar&id=<?php echo $linha['id']; ?>">Editar</a>
-              <a class="btn btn-danger btn-sm" href="permissao.php?acao=excluir&id=<?php echo $linha['id']; ?>">Excluir</a>
+              <a class="btn btn-danger btn-sm" onclick="return confirm('Deseja mesmo deletar a Permissão?')" href="permissao.php?acao=excluir&id=<?php echo $linha['id']; ?>">Excluir</a>
+              
             </td>
           </tr>
         <?php endforeach; ?>

@@ -2,16 +2,34 @@
 
 require_once '../config/conexao.php';
 
-
+/**
+* Requests
+*/
 if (!isset($_GET['acao'])) $acao = "listar";
 else $acao = $_GET['acao'];
+
+if(isset($_GET['pesquisa'])){
+  $pesquisa = $_GET['pesquisa'];
+}else{
+  $pesquisa = "";
+}
 
 /**
 * Ação de listar
 */
 
 if ($acao == "listar") {
-  $sql = "SELECT calldate, src, dst, clid, duration, billsec, clid, disposition FROM cdr ORDER BY calldate DESC";
+  /**
+  * Se a variável `$pesquisa` tiver algum resultado, realiza a pesquisa com base
+  * nesta variável
+  */
+  $sql_pesquisa = "";
+
+  if($pesquisa != ""){
+    $sql_pesquisa = "WHERE disposition = '".$pesquisa."' ";
+  }
+
+  $sql = "SELECT calldate, src, dst, clid, duration, billsec, clid, disposition FROM cdr $sql_pesquisa ORDER BY calldate DESC";
 
 
   $query    = $con->query($sql);

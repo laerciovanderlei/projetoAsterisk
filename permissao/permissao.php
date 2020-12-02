@@ -41,17 +41,30 @@ else if($acao == "gravar"){
   $sql = "INSERT INTO permissao(nome) VALUES(:nome)";
   $query = $con->prepare($sql);
   $result = $query->execute($registro);
+
   if($result){
     header('Location: ./permissao.php');
+    // echo "<script>alert('Permissão cadastrada com sucesso!')</script>";
+    // echo "<script>window.history.back();</script>";
   }else{
     echo "Erro ao tentar inserir a Permissão!" .$nome;
   }
 }
+
 /**
 * Ação Excluir
 **/
 else if($acao == "excluir"){
   $id= $_GET['id'];
+// pesquisando para econtrar o NOME!
+  $sql = "SELECT * FROM permissao WHERE id = :id";
+  $query = $con->prepare($sql);
+  $query->bindParam(':id', $id);
+
+  $query->execute();
+  $registro = $query->fetch();
+
+// SQL para deletar!
   $sql = "DELETE FROM permissao WHERE id = :id";
   $query = $con->prepare($sql);
 
@@ -59,9 +72,12 @@ else if($acao == "excluir"){
 
   $result = $query->execute();
   if($result){
-    header('Location: ./permissao.php');
+    //header('Location: ./permissao.php');
+    echo "<script>alert('Permissão removida com sucesso!')</script>";
+    echo "<script>window.history.back();</script>";
   }else{
-    echo "Erro ao tentar remover a Permissão de id: " . $id;
+    echo "<script>alert('Erro ao tentar remover a Permissão de: ".$registro["nome"]."')</script>";
+    echo "<script>window.history.back();</script>";
   }
 }
 /**
@@ -92,8 +108,6 @@ else if($acao == "atualizar"){
   $query->bindParam(':id', $_GET['id']);
   $query->bindParam(':nome', $_POST['nome']);
   $result = $query->execute();
-
-
 
   if($result){
     header('Location: ./permissao.php');

@@ -61,7 +61,7 @@ else if ($acao == "gravar") {
   $query  = $con->prepare($sql);
   $result = $query->execute($registro);
   if ($result) {
-//Colocar a mensagem aqui para o alerta    
+//Colocar a mensagem aqui para o alerta
     header('Location: ./ramais.php');
   } else {
     echo "Erro ao tentar inserir o ramal" . print_r($query->errorInfo());
@@ -80,7 +80,9 @@ else if ($acao == "excluir") {
 
   $result = $query->execute();
   if ($result) {
-    header('Location: ./ramais.php');
+    //header('Location: ./ramais.php');
+    echo "<script>alert('Ramal removido com sucesso!')</script>";
+    echo "<script>window.history.back();</script>";
   } else {
     echo "Erro ao tentar remover o ramal de id: " . $id;
   }
@@ -124,9 +126,6 @@ else if ($acao == "atualizar") {
   $query->bindParam(':callerid', $_POST['callerid']);
   $query->bindParam(':name', $_POST['name']);
   $query->bindParam(':secret', $_POST['secret']);
-
-  // $query->bindParam(':context', $_POST['context']);
-
   $query->bindParam(':id_permissao', $_POST['id_permissao']);
   $query->bindParam(':id_grupo', $_POST['id_grupo']);
   $result = $query->execute();

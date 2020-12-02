@@ -56,9 +56,6 @@ function hora($seg)
             <td data-sort="<?=$linha['calldate']?>" bgcolor="#A9A9A9">
               <?php echo date("d/m/Y H:i:s",strtotime($linha['calldate'])); ?>
             </td>
-            <!-- Realizar o ajuste da data e hora para o Padrão Brasileiro -->
-            <!-- <?php echo date('d/m/Y H:i:s', strtotime($data)); ?> -->
-
             <td><?php echo $linha['src']; ?></td>
             <td><?php echo $linha['dst']; ?></td>
             <td><?php echo $linha['clid']; ?></td>

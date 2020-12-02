@@ -32,6 +32,7 @@ else if($acao == "novo"){
   require_once 'form_grupo.php';
   require_once '../template/rodape.php';
 }
+
 /**
 * Ação Gravar
 **/
@@ -46,6 +47,8 @@ else if($acao == "gravar"){
 
   if ($result){
     header('Location: ./grupo.php');
+    // echo "<script>alert('Grupo cadastrado com sucesso!')</script>";
+    // echo "<script>window.history.back();</script>";
   } else {
     echo "Erro ao tentar inserir o Grupo: " .$nome;
   }
@@ -63,9 +66,13 @@ else if($acao == "excluir"){
 
   $result = $query->execute();
   if($result){
-    header('Location: ./grupo.php');
+  //header('Location: ./grupo.php');
+    echo "<script>alert('Grupo excluido com sucesso!')</script>";
+    echo "<script>window.history.back();</script>";
   }else{
-    echo "Erro ao tentar remover o grupo de id: " . $id;
+    echo "<script>alert('Erro ao remover este item!')</script>";
+    echo "<script>window.history.back();</script>";
+    //echo "Erro ao tentar remover o grupo de id: " . $id;
   }
 }
 /**
