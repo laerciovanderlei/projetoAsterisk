@@ -9,13 +9,13 @@ class PDF extends FPDF
   function Header()
   {
       // Logo
-      //$this->Image('logo.png',10,6,30);
+      $this->Image('http://localhost/projetoAsterisk/ramais/fpdf/asterisk.jpeg',10,05,50,0,'JPEG');
       // Arial bold 15
       $this->SetFont('Arial','B',22);
       // Move to the right
       $this->Cell(80);
       // Title
-      $this->Cell(30,10,'Relatorio de Ramais',0,0,'C');
+      $this->Cell(30,18,'Relatorio de Ramais',0,0,'C');
       // Line break
       $this->Ln(20);
   }
@@ -52,22 +52,20 @@ $consulta = $con->query("SELECT
   ;
 
 
-
-
   $pdf = new PDF('P','mm','A4');
 
   $pdf->AddPage();
 
-  $pdf->SetFont('Arial','B',11); //Define a Fonte, B de Bold (Negrito) e o Tamanho da Fonte
+  $pdf->SetFont('Arial','B',12); //Define a Fonte, B de Bold (Negrito) e o Tamanho da Fonte
 
   foreach ($Colunas as $Coluna) {
-    $pdf->Cell(38, 12, utf8_decode($Coluna), 1); //Define a Largura, Altura e o Conteudo da Celula
+    $pdf->Cell(48, 12, utf8_decode($Coluna), 1); //Define a Largura, Altura e o Conteudo das Colunas das Celulas
   }
 
   while ($row = $consulta->fetch(PDO::FETCH_ASSOC)) {
     $pdf->Ln();
     foreach($row as $column)
-    $pdf->Cell(38,8,$column,1); //Define a Largura, Altura e o Conteudo da Celula
+    $pdf->Cell(48,8,$column,1); //Define a Largura, Altura e o Conteudo dos Dados das Celulas
   }
 
   $pdf->Output();
