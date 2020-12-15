@@ -46,9 +46,9 @@ else if($acao == "gravar"){
   $result = $query->execute($registro);
 
   if ($result){
-    header('Location: ./grupo.php');
-    // echo "<script>alert('Grupo cadastrado com sucesso!')</script>";
-    // echo "<script>window.history.back();</script>";
+    // header('Location: ./grupo.php');
+    echo "<script>alert('Grupo cadastrado com sucesso!')</script>";
+    echo "<script>window.location.href='./grupo.php'</script>";
   } else {
     echo "Erro ao tentar inserir o Grupo: " .$nome;
   }
@@ -59,6 +59,16 @@ else if($acao == "gravar"){
 **/
 else if($acao == "excluir"){
   $id= $_GET['id'];
+  $sql   = "SELECT * FROM grupo WHERE id = :id";
+  $query = $con->prepare($sql);
+  $query->bindParam(':id', $id);
+
+  $query->execute();
+  $registro = $query->fetch();
+
+  $nome = $registro['nome'];
+
+
   $sql   = "DELETE FROM grupo WHERE id = :id";
   $query = $con->prepare($sql);
 
@@ -66,13 +76,13 @@ else if($acao == "excluir"){
 
   $result = $query->execute();
   if($result){
-  //header('Location: ./grupo.php');
+
     echo "<script>alert('Grupo excluido com sucesso!')</script>";
     echo "<script>window.history.back();</script>";
   }else{
-    echo "<script>alert('Erro ao remover este item!')</script>";
+    echo "<script>alert('Erro ao remover o Grupo: $nome')</script>" ;
     echo "<script>window.history.back();</script>";
-    //echo "Erro ao tentar remover o grupo de id: " . $id;
+
   }
 }
 /**

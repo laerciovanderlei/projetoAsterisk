@@ -62,7 +62,9 @@ else if ($acao == "gravar") {
   $result = $query->execute($registro);
   if ($result) {
 //Colocar a mensagem aqui para o alerta
-    header('Location: ./ramais.php');
+    // header('Location: ./ramais.php');
+    echo "<script>alert('Ramal cadastrado com sucesso!')</script>";
+    echo "<script>window.location.href='./ramais.php'</script>";
   } else {
     echo "Erro ao tentar inserir o ramal" . print_r($query->errorInfo());
   }

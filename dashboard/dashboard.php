@@ -9,13 +9,7 @@ else $acao = $_GET['acao'];
 /**
  * Ação de listar
  */
-
  if ($acao == "listar") {
-   //$sql = "select count(*) from cdr where disposition ='ANSWERED'";
-
-
-    //$query    = $con->query($sql);
-    //$registros = $query->fetchAll();
 
     require_once '../template/cabecalho.php';
     require_once 'lista_dashboard.php';

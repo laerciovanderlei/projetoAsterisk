@@ -1,6 +1,17 @@
 <?php
-if(isset($registro)) $acao = "ramais.php?acao=atualizar&id=".$registro['id'];
-else $acao = "ramais.php?acao=gravar";?>
+if(isset($registro)) {
+$acao_alerta="atualizar";
+
+$acao = "ramais.php?acao=atualizar&id=".$registro['id'];}
+
+
+else{
+$acao_alerta="cadastrar";
+
+ $acao = "ramais.php?acao=gravar";}?>
+
+
+
 <div class="container">
   <form class="" action="<?php echo $acao; ?>" method="post">
   <p></p>
@@ -56,10 +67,7 @@ else $acao = "ramais.php?acao=gravar";?>
 
     <br>
 
-    <button class="btn btn-info" onclick="return confirm('Deseja mesmo Cadastrar o Ramal?')" type="submit">Enviar</button>
-
-
-
+    <button class="btn btn-info" onclick="return confirm('Deseja mesmo <?php echo $acao_alerta;?> o Ramal?')" type="submit">Enviar</button>
 
   </form>
 </div>

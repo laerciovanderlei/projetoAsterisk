@@ -43,9 +43,9 @@ else if($acao == "gravar"){
   $result = $query->execute($registro);
 
   if($result){
-    header('Location: ./permissao.php');
-    // echo "<script>alert('Permissão cadastrada com sucesso!')</script>";
-    // echo "<script>window.history.back();</script>";
+
+    echo "<script>alert('Permissão cadastrada com sucesso!')</script>";
+    echo "<script>window.location.href='./permissao.php'</script>";
   }else{
     echo "Erro ao tentar inserir a Permissão!" .$nome;
   }
@@ -76,7 +76,7 @@ else if($acao == "excluir"){
     echo "<script>alert('Permissão removida com sucesso!')</script>";
     echo "<script>window.history.back();</script>";
   }else{
-    echo "<script>alert('Erro ao tentar remover a Permissão de: ".$registro["nome"]."')</script>";
+    echo "<script>alert('Erro ao tentar remover a Permissão: ".$registro["nome"]."')</script>";
     echo "<script>window.history.back();</script>";
   }
 }
